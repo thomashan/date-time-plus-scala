@@ -1,2 +1,30 @@
-# date-time-plus-scala
-Simplify java date time in scala! 
+# date-time-plus-groovy
+Simplify java date time in groovy!
+
+Suggestions and feedback is very much appreciated.
+
+
+# Design objectives
+* simplify java date time API and make developers' lives happier!
+* minimal dependencies
+* make it work with multiple versions of java, scala and always aim to be backwards compatible
+
+## Prerequisites
+* JDK 1.8+
+* Scala 2.12
+
+There will be multiple branches for different scala versions.
+
+## Install
+I can't publish to public maven repos so the best way to install it at the moment is to checkout the code and build it yourself.
+```
+> sbt clean publishLocal
+```
+
+
+## Usage and examples
+```scala
+val oneMonthFromToday = java.time.LocalDate.now() + 1.month
+val oneMonthFromNow = java.time.LocalDateTime.now() + 1.month
+val oneMonthFromNowAtUtcTimeZone = ZonedDateTime.now(ZoneId.of("UTC")) + 1.month
+```
