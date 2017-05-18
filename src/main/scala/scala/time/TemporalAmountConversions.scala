@@ -2,14 +2,15 @@ package scala.time
 
 import java.time.temporal.ChronoUnit.{DAYS, HOURS, MINUTES, MONTHS, NANOS, SECONDS, YEARS}
 import java.time.temporal.{TemporalAmount, TemporalUnit}
+import java.time.{Duration, Period}
 
 import scala.time.TemporalAmountConversions.Classifier
 
-trait TemporalAmountConversions extends Any {
-  protected def temporalAmount(temporalUnit: TemporalUnit): TemporalAmount
+trait TemporalAmountConversions[T <: TemporalAmount] extends Any {
+  protected def temporalAmount(temporalUnit: TemporalUnit): T
 }
 
-trait TemporalAmountIntConversions extends Any with TemporalAmountConversions {
+trait TemporalAmountIntConversions extends Any with TemporalAmountConversions[Period] {
   def year = temporalAmount(YEARS)
 
   def month = temporalAmount(MONTHS)
@@ -23,7 +24,7 @@ trait TemporalAmountIntConversions extends Any with TemporalAmountConversions {
   def day[C](c: C)(implicit ev: Classifier[C]): ev.R = ev.convert(day)
 }
 
-trait TemporalAmountLongConversions extends Any with TemporalAmountConversions {
+trait TemporalAmountLongConversions extends Any with TemporalAmountConversions[Duration] {
   def hour = temporalAmount(HOURS)
 
   def minute = temporalAmount(MINUTES)
