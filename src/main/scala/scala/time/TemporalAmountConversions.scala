@@ -10,51 +10,31 @@ trait TemporalAmountConversions extends Any {
 }
 
 trait TemporalAmountIntConversions extends Any with TemporalAmountConversions {
-  protected def temporalAmount(temporalUnit: TemporalUnit): TemporalAmount
-
   def year = temporalAmount(YEARS)
 
   def month = temporalAmount(MONTHS)
 
   def day = temporalAmount(DAYS)
 
-  def hr = temporalAmount(HOURS)
-
-  def min = temporalAmount(MINUTES)
-
-  def s = temporalAmount(SECONDS)
-
-  def ns = temporalAmount(NANOS)
-
   def year[C](c: C)(implicit ev: Classifier[C]): ev.R = ev.convert(year)
 
   def month[C](c: C)(implicit ev: Classifier[C]): ev.R = ev.convert(month)
 
   def day[C](c: C)(implicit ev: Classifier[C]): ev.R = ev.convert(day)
-
-  def hr[C](c: C)(implicit ev: Classifier[C]): ev.R = ev.convert(hr)
-
-  def min[C](c: C)(implicit ev: Classifier[C]): ev.R = ev.convert(min)
-
-  def s[C](c: C)(implicit ev: Classifier[C]): ev.R = ev.convert(s)
-
-  def ns[C](c: C)(implicit ev: Classifier[C]): ev.R = ev.convert(ns)
 }
 
 trait TemporalAmountLongConversions extends Any with TemporalAmountConversions {
-  protected def temporalAmount(temporalUnit: TemporalUnit): TemporalAmount
+  def hour = temporalAmount(HOURS)
 
-  def hr = temporalAmount(HOURS)
-
-  def min = temporalAmount(MINUTES)
+  def minute = temporalAmount(MINUTES)
 
   def s = temporalAmount(SECONDS)
 
   def ns = temporalAmount(NANOS)
 
-  def hr[C](c: C)(implicit ev: Classifier[C]): ev.R = ev.convert(hr)
+  def hour[C](c: C)(implicit ev: Classifier[C]): ev.R = ev.convert(hour)
 
-  def min[C](c: C)(implicit ev: Classifier[C]): ev.R = ev.convert(min)
+  def minute[C](c: C)(implicit ev: Classifier[C]): ev.R = ev.convert(minute)
 
   def s[C](c: C)(implicit ev: Classifier[C]): ev.R = ev.convert(s)
 
