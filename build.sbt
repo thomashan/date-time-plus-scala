@@ -6,5 +6,5 @@ scalaVersion := "2.12.2"
 javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
 
 libraryDependencies ++= Seq(
+  "org.scalatest" %% "scalatest" % "3.0.1" % "test"
 )
-
