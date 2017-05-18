@@ -1,7 +1,7 @@
 package scala
 
 import java.time.temporal.ChronoUnit.{DAYS, HOURS, MINUTES, MONTHS, NANOS, SECONDS, YEARS}
-import java.time.temporal.{TemporalAmount, TemporalUnit}
+import java.time.temporal.{Temporal, TemporalAmount, TemporalUnit}
 import java.time.{Duration, Period}
 
 package object time {
@@ -25,6 +25,16 @@ package object time {
       case SECONDS => Duration.ofSeconds(n)
       case NANOS => Duration.ofNanos(n)
     }
+  }
+
+  implicit final class TemporalAmountOperators(private val temporalAmount: TemporalAmount) {
+    def +(temporal: Temporal) = temporalAmount.addTo(temporal)
+  }
+
+  implicit final class TemporalOperators(private val temporal: Temporal) {
+    def +(temporalAmount: TemporalAmount) = temporal.plus(temporalAmount)
+
+    def -(temporalAmount: TemporalAmount) = temporal.minus(temporalAmount)
   }
 
 }
