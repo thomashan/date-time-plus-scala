@@ -1,4 +1,4 @@
-# date-time-plus-scala
+# date-time-plus-scala [![Build Status](https://travis-ci.org/thomashan/date-time-plus-scala.svg)](https://travis-ci.org/thomashan/date-time-plus-scala)
 Simplify java date time in scala!
 
 Suggestions and feedback is very much appreciated.
@@ -28,5 +28,5 @@ import scala.time._
 
 val oneMonthFromToday = java.time.LocalDate.now() + 1.month
 val oneMonthFromNow = java.time.LocalDateTime.now() + 1.month
-val oneMonthFromNowAtUtcTimeZone = java.time.ZonedDateTime.now(ZoneId.of("UTC")) + 1.month
+val oneMonthFromNowAtUtcTimeZone = java.time.ZonedDateTime.now(java.time.ZoneId.of("UTC")) + 1.month
 ```
