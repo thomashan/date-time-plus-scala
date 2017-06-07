@@ -6,7 +6,7 @@ import java.time.{Duration, Period}
 
 package object time {
 
-  implicit final class TemporalAmountInt(private val n: Int) extends AnyVal with TemporalAmountIntConversions {
+  implicit final class TemporalAmountInt(val n: Int) extends AnyVal with TemporalAmountIntConversions {
     override protected def temporalAmount(temporalUnit: TemporalUnit): Period = temporalUnit match {
       case YEARS => Period.ofYears(n)
       case MONTHS => Period.ofMonths(n)
@@ -14,7 +14,7 @@ package object time {
     }
   }
 
-  implicit final class TemporalAmountLong(private val n: Long) extends AnyVal with TemporalAmountLongConversions {
+  implicit final class TemporalAmountLong(val n: Long) extends AnyVal with TemporalAmountLongConversions {
     override protected def temporalAmount(temporalUnit: TemporalUnit): Duration = temporalUnit match {
       case HOURS => Duration.ofHours(n)
       case MINUTES => Duration.ofMinutes(n)
