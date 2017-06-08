@@ -6,6 +6,19 @@ scala:
    - 2.11.11
 
 script:
-  - sbt clean coverage test coverageReport
+  - sbt clean coverage test coverageReport &&
+    sbt coverageAggregate
+  - sonar-scanner
 after_success:
-- bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash)
+  - sbt coveralls
+  - sbt codacyCoverage
+
+addons:
+  sonarqube:
+    organization: "thomashan-github"
+    branches:
+      - master
+      - scala_2.12
+      - scala_2.11
+      - scala_2.10

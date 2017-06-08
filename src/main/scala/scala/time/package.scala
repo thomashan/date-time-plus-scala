@@ -1,6 +1,6 @@
 package scala
 
-import java.time.temporal.ChronoUnit.{DAYS, HOURS, MINUTES, MONTHS, NANOS, SECONDS, YEARS}
+import java.time.temporal.ChronoUnit._
 import java.time.temporal.{Temporal, TemporalAmount, TemporalUnit}
 import java.time.{Duration, Period}
 
