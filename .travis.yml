@@ -17,3 +17,8 @@ after_success:
 addons:
   sonarqube:
     organization: "thomashan-github"
+    branches:
+      - master
+      - scala_2.12
+      - scala_2.11
+      - scala_2.10
