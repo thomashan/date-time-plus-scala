@@ -1,4 +1,4 @@
-# date-time-plus-scala [![Build Status](https://travis-ci.org/thomashan/date-time-plus-scala.svg)](https://travis-ci.org/thomashan/date-time-plus-scala) [![codecov](https://codecov.io/gh/thomashan/date-time-plus-scala/branch/master/graph/badge.svg)](https://codecov.io/gh/thomashan/date-time-plus-scala)
+# date-time-plus-scala [![Build Status](https://travis-ci.org/thomashan/date-time-plus-scala.svg)](https://travis-ci.org/thomashan/date-time-plus-scala) [![codecov](https://codecov.io/gh/thomashan/date-time-plus-scala/branch/master/graph/badge.svg)](https://codecov.io/gh/thomashan/date-time-plus-scala) [![Coverage Status](https://coveralls.io/repos/github/thomashan/date-time-plus-scala/badge.svg)](https://coveralls.io/github/thomashan/date-time-plus-scala) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1984f0cf64464a238c59219751d77794)](https://www.codacy.com/app/thomashan/date-time-plus-scala?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=thomashan/date-time-plus-scala&amp;utm_campaign=Badge_Grade)
 Simplify java date time in scala!
 
 Suggestions and feedback is very much appreciated.
