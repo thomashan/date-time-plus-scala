@@ -4,6 +4,8 @@ import java.time.temporal.ChronoUnit._
 import java.time.temporal.{Temporal, TemporalAmount, TemporalUnit}
 import java.time.{Duration, Period}
 
+import org.threeten.extra.PeriodDuration
+
 package object time {
 
   implicit final class TemporalAmountInt(val n: Int) extends AnyVal with TemporalAmountIntConversions {
@@ -19,30 +21,38 @@ package object time {
       case HOURS => Duration.ofHours(n)
       case MINUTES => Duration.ofMinutes(n)
       case SECONDS => Duration.ofSeconds(n)
+      case MILLIS => Duration.ofMillis(n)
+      case MICROS => Duration.ofNanos(n * 1000)
       case NANOS => Duration.ofNanos(n)
     }
   }
 
-  abstract class TemporalAmountOperators(private val temporalAmount: TemporalAmount) {
-    def +(temporal: Temporal) = temporalAmount.addTo(temporal)
-  }
+  sealed abstract class TemporalAmountOperators(private val temporalAmount: TemporalAmount)
 
   implicit final class DurationOperators(private val duration: Duration) extends TemporalAmountOperators(duration) {
-    def +(other: Duration) = duration.plus(other)
+    def +(other: Duration): Duration = duration.plus(other)
 
-    def -(other: Duration) = duration.minus(other)
+    def -(other: Duration): Duration = duration.minus(other)
+
+    def +(other: Period): PeriodDuration = PeriodDuration.of(duration).plus(PeriodDuration.of(other))
+
+    def -(other: Period): PeriodDuration = PeriodDuration.of(duration).minus(PeriodDuration.of(other))
   }
 
   implicit final class PeriodOperators(private val period: Period) extends TemporalAmountOperators(period) {
-    def +(other: Period) = period.plus(other)
+    def +(other: Period): Period = period.plus(other)
 
-    def -(other: Period) = period.minus(other)
+    def -(other: Period): Period = period.minus(other)
+
+    def +(other: Duration): PeriodDuration = PeriodDuration.of(period).plus(PeriodDuration.of(other))
+
+    def -(other: Duration): PeriodDuration = PeriodDuration.of(period).minus(PeriodDuration.of(other))
   }
 
   implicit class TemporalOperators(private val temporal: Temporal) {
-    def +(temporalAmount: TemporalAmount) = temporal.plus(temporalAmount)
+    def +(temporalAmount: TemporalAmount): Temporal = temporal.plus(temporalAmount)
 
-    def -(temporalAmount: TemporalAmount) = temporal.minus(temporalAmount)
+    def -(temporalAmount: TemporalAmount): Temporal = temporal.minus(temporalAmount)
   }
 
 }

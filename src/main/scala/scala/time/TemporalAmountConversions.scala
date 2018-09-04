@@ -4,42 +4,89 @@ import java.time.temporal.ChronoUnit._
 import java.time.temporal.{TemporalAmount, TemporalUnit}
 import java.time.{Duration, Period}
 
-import scala.time.TemporalAmountConversions.Classifier
-
 trait TemporalAmountConversions[T <: TemporalAmount] extends Any {
   protected def temporalAmount(temporalUnit: TemporalUnit): T
 }
 
 trait TemporalAmountIntConversions extends Any with TemporalAmountConversions[Period] {
-  def year = temporalAmount(YEARS)
+  def year: Period = temporalAmount(YEARS)
 
-  def month = temporalAmount(MONTHS)
+  def years: Period = year
 
-  def day = temporalAmount(DAYS)
 
-  def year[C](c: C)(implicit ev: Classifier[C]): ev.R = ev.convert(year)
+  def month: Period = temporalAmount(MONTHS)
 
-  def month[C](c: C)(implicit ev: Classifier[C]): ev.R = ev.convert(month)
+  def months: Period = month
 
-  def day[C](c: C)(implicit ev: Classifier[C]): ev.R = ev.convert(day)
+
+  def day: Period = temporalAmount(DAYS)
+
+  def days: Period = temporalAmount(DAYS)
 }
 
 trait TemporalAmountLongConversions extends Any with TemporalAmountConversions[Duration] {
-  def hour = temporalAmount(HOURS)
+  def hour: Duration = temporalAmount(HOURS)
 
-  def minute = temporalAmount(MINUTES)
+  def hours: Duration = hour
 
-  def s = temporalAmount(SECONDS)
+  def hr: Duration = hour
 
-  def ns = temporalAmount(NANOS)
+  def hrs: Duration = hour
 
-  def hour[C](c: C)(implicit ev: Classifier[C]): ev.R = ev.convert(hour)
+  def h: Duration = hour
 
-  def minute[C](c: C)(implicit ev: Classifier[C]): ev.R = ev.convert(minute)
 
-  def s[C](c: C)(implicit ev: Classifier[C]): ev.R = ev.convert(s)
+  def minute: Duration = temporalAmount(MINUTES)
 
-  def ns[C](c: C)(implicit ev: Classifier[C]): ev.R = ev.convert(ns)
+  def minutes: Duration = minute
+
+  def mins: Duration = minute
+
+  def m: Duration = minute
+
+
+  def second: Duration = temporalAmount(SECONDS)
+
+  def seconds: Duration = second
+
+  def sec: Duration = second
+
+  def secs: Duration = second
+
+  def s: Duration = second
+
+
+  def millisecond: Duration = temporalAmount(MILLIS)
+
+  def milliseconds: Duration = millisecond
+
+  def milli: Duration = millisecond
+
+  def millis: Duration = millisecond
+
+  def ms: Duration = millisecond
+
+
+  def microsecond: Duration = temporalAmount(MICROS)
+
+  def microseconds: Duration = microsecond
+
+  def micro: Duration = microsecond
+
+  def micros: Duration = microsecond
+
+  def us: Duration = microsecond
+
+
+  def nanosecond: Duration = temporalAmount(NANOS)
+
+  def nanoseconds: Duration = nanosecond
+
+  def nano: Duration = nanosecond
+
+  def nanos: Duration = nanosecond
+
+  def ns: Duration = nanosecond
 }
 
 object TemporalAmountConversions {

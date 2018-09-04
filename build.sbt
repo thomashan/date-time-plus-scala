@@ -6,5 +6,6 @@ scalaVersion := "2.10.6"
 javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
 
 libraryDependencies ++= Seq(
+  "org.threeten" % "threeten-extra" % "1.4",
   "org.scalatest" %% "scalatest" % "3.0.1" % "test"
 )
