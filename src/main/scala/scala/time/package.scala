@@ -27,9 +27,9 @@ package object time {
     }
   }
 
-  sealed abstract class TemporalAmountOperators(private val temporalAmount: TemporalAmount)
+  sealed abstract class TemporalAmountOperators(val temporalAmount: TemporalAmount)
 
-  implicit final class DurationOperators(private val duration: Duration) extends TemporalAmountOperators(duration) {
+  implicit final class DurationOperators(val duration: Duration) extends TemporalAmountOperators(duration) {
     def +(other: Duration): Duration = duration.plus(other)
 
     def -(other: Duration): Duration = duration.minus(other)
@@ -39,7 +39,7 @@ package object time {
     def -(other: Period): PeriodDuration = PeriodDuration.of(duration).minus(PeriodDuration.of(other))
   }
 
-  implicit final class PeriodOperators(private val period: Period) extends TemporalAmountOperators(period) {
+  implicit final class PeriodOperators(val period: Period) extends TemporalAmountOperators(period) {
     def +(other: Period): Period = period.plus(other)
 
     def -(other: Period): Period = period.minus(other)
@@ -49,7 +49,7 @@ package object time {
     def -(other: Duration): PeriodDuration = PeriodDuration.of(period).minus(PeriodDuration.of(other))
   }
 
-  implicit class TemporalOperators(private val temporal: Temporal) {
+  implicit class TemporalOperators(val temporal: Temporal) {
     def +(temporalAmount: TemporalAmount): Temporal = temporal.plus(temporalAmount)
 
     def -(temporalAmount: TemporalAmount): Temporal = temporal.minus(temporalAmount)
