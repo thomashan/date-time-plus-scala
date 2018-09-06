@@ -1,6 +1,6 @@
 # date-time-plus-scala
 [![Build Status](https://travis-ci.org/thomashan/date-time-plus-scala.svg)](https://travis-ci.org/thomashan/date-time-plus-scala)
-[![Quality Gate](https://sonarcloud.io/api/badges/gate?key=scala.time)](https://sonarcloud.io/dashboard?id=scala.time)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=scala.time&metric=alert_status)](https://sonarcloud.io/dashboard?id=scala.time)
 [![codecov](https://codecov.io/gh/thomashan/date-time-plus-scala/branch/master/graph/badge.svg)](https://codecov.io/gh/thomashan/date-time-plus-scala)
 [![Coverage Status](https://coveralls.io/repos/github/thomashan/date-time-plus-scala/badge.svg)](https://coveralls.io/github/thomashan/date-time-plus-scala)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1984f0cf64464a238c59219751d77794)](https://www.codacy.com/app/thomashan/date-time-plus-scala?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=thomashan/date-time-plus-scala&amp;utm_campaign=Badge_Grade)
